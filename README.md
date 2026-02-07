@@ -1,4 +1,4 @@
-# 🚀 O que aprendi com o projeto Gerenciador de Tarefas em Python
+# 😎 O que aprendi com o projeto Gerenciador de Tarefas em Python
 
 ### 1. Estrutura de controle e loops
 - Uso do `while True` para criar um programa que roda continuamente até o usuário escolher sair.
