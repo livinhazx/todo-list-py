@@ -1,5 +1,10 @@
 tarefas = []
 
+def salvar_tarefas():
+  
+  with open("tarefas.txt", "w") as arquivo:
+    for tarefa in tarefas:
+      arquivo.write(tarefa + "\n")
 
 def ver_tarefas():
  
@@ -11,12 +16,17 @@ def ver_tarefas():
   print(f"{index} - {tarefa} ")
 
 def concluir_tarefa():
-  itemConcluido = int(input("Digite o item que deseja concluir: "))
-  if itemConcluido == ' ':
-    print("Digite um número!")
-  elif itemConcluido == ''
-  concluir = tarefas.pop(itemConcluido)
-  print("Item {} concluído com sucesso!".format(tarefas.index.value))
+  try:
+   itemConcluido = int(input("Digite o item que deseja concluir: "))
+   tarefa_removida = tarefas.pop(itemConcluido)
+   print(f"Item '{tarefa_removida}' concluído com sucesso!")
+
+  except ValueError:
+    print("Digite um número válido!")
+
+  except IndexError:
+    print("Não existe tarefa com esse número!")
+  
 
 while True:
   print("\n1 Ver tarefas")
@@ -26,7 +36,11 @@ while True:
 
   opcao = input("Escolha: ")
 
-  opcao = int(opcao)
+  try:
+    opcao = int(opcao)
+  except ValueError:
+    print("Digite um número válido para a opção!")
+    continue
  
   if opcao == 1:
     ver_tarefas()
@@ -37,6 +51,10 @@ while True:
   elif opcao == 3:
     concluir_tarefa()
     print("Tarefa concluida!")
+  elif opcao == 4:
+    salvar_tarefas()
+    print("Tarefas salvas. Saindo..")
+    break
   
 
   
